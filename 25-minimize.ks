@@ -6,9 +6,8 @@
 echo " * purge existing random seed to avoid identical seeds everywhere"
 rm -f /var/lib/random-seed
 
-echo " * disable sshd and purge existing SSH host keys"
+echo " * purge existing SSH host keys"
 rm -f /etc/ssh/ssh_host_*key{,.pub}
-systemctl disable sshd.service
 
 # This seems to cause 'reboot' resulting in a shutdown on certain platforms
 # See https://tickets.puppetlabs.com/browse/RAZOR-100
