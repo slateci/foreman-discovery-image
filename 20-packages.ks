@@ -83,6 +83,13 @@ e2fsprogs
 bzip2
 system-storage-manager
 
+# Dell DSU/OMSA tools
+git
+dell-system-update
+srvadmin-base
+srvadmin-server-cli
+srvadmin-storage-cli
+
 ######################
 # Packages to Remove #
 ######################

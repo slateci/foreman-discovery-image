@@ -142,4 +142,22 @@ kversion=$(rpm -q kernel --qf '%{version}-%{release}.%{arch}\n')
 ramfsfile="/boot/initramfs-$kversion.img"
 /sbin/dracut --force --add-drivers "mptbase mptscsih mptspi hv_storvsc hid_hyperv hv_netvsc hv_vmbus" $ramfsfile $kversion
 
+echo " * adding dell-system-update repositories"
+cat > /etc/yum.repos.d/dell-system-update.repo <<'EOG'
+[dell-system-update_independent]
+name=dell-system-update_independent
+baseurl=http://linux.dell.com/repo/hardware/dsu/os_independent/
+gpgcheck=1
+gpgkey=http://linux.dell.com/repo/hardware/dsu/public.key
+enabled=1
+exclude=dell-system-update*.i386
+
+[dell-system-update_dependent]
+name=dell-system-update_dependent
+mirrorlist=http://linux.dell.com/repo/hardware/dsu/mirrors.cgi?osname=el$releasever&basearch=$basearch&native=1
+gpgcheck=1
+gpgkey=http://linux.dell.com/repo/hardware/dsu/public.key
+enabled=1
+EOG
+
 %end
