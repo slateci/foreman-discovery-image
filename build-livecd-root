@@ -44,7 +44,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "* Remastering ISO with correct kernel options"
-bash -x $srcdir/aux/remaster/discovery-remaster fdi.iso fdi.local fdi-bootable.iso
+bash -x $srcdir/aux/remaster/discovery-remaster fdi.iso fdi.local fdi-bootable.iso rd.live.overlay.size=8000 rd.writable.fsimg=1
 
 echo "* Filtering ISO with isohybrid"
 isohybrid --partok --uefi fdi-bootable.iso
