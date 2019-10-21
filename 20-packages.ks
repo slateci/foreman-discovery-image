@@ -85,6 +85,7 @@ system-storage-manager
 
 # Dell DSU/OMSA tools
 git
+glibc
 dell-system-update
 srvadmin-base
 srvadmin-server-cli
